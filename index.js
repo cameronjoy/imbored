@@ -1,6 +1,7 @@
 const axios  = require('axios')
 let express = require('express')
 let ejsLayouts = require('express-ejs-layouts')
+const methodOverride = require('method-override')
 // let db = require('./models')
 let rowdy = require('rowdy-logger')
 
@@ -22,10 +23,12 @@ app.get('/', (req,res) => {
 app.use(express.urlencoded({ extended: false }))
 app.use(ejsLayouts)
 app.use(express.static(__dirname + '/public/'))
+app.use(methodOverride('_method'))
 
-app.use('/favorites', require('./controllers/favorites'))
+
 app.use('/results', require('./controllers/results'))
 app.use('/user', require('./controllers/user'))
+
 
 // app.get('/results', (req, res) => {
 //     axios.get('http://www.boredapi.com/api/activity')

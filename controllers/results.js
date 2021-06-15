@@ -24,9 +24,10 @@ router.get('/', (req, res) => {
     .catch(err => {console.log(err)})
 
     } else if(participants==2){
-        let activityKey = response.data.key
+        
         axios.get(`http://www.boredapi.com/api/activity?type=${type}&minparticipants=${participants}&price=${price}`)
     .then(response => {
+        let activityKey = response.data.key
         let activityResult = response.data.activity
         let participantsResult = response.data.participants
         let typeResult = response.data.type

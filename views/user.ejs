@@ -7,15 +7,13 @@
     <title>bored</title>
 </head>
 <body>
-    <div>
-        <h3>Name</h3>
-        <a href="#faves" class="btn btn-light">See favorites</a>
-    </div>
     <div id="faves">
         <% favorites.forEach((fave) => { %>
-            <div class="well">
-              <h2><%= fave.key %></h2>
-            </div>
+              <h2><%= fave.activity %></h2>
+              <form action="/user/:id"></form>
+              <a href="#">delete</a>
+              <a href="#">edit note</a>
+            
           <% }); %>
     </div>
     

@@ -28,7 +28,8 @@
             <%= participants %>
         </h3> -->
         <form method="POST" action="/user">
-            <input hidden type="text" name="name" value="<%= activityKey %>">
+            <input hidden type="text" name="activityKey" value="<%= activityKey %>">
+            <input hidden type="text" name="activity" value="<%= activity %>">
             <button class="btn btn-primary" type="submit">Add to Favorite</button>
           </form>
         <a href="/" class="btn btn-light">Try again</a>

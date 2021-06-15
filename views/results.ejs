@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <title>imBored</title>
+</head>
+<body>
+    <% if(activity == null){ %>
+    <div>
+        <h1>No results!</h1>
+        <a href="/" class="btn btn-light">Try again</a>
+    </div> 
+<% } else { %>
+    <div>
+       
+        <h1>
+            <%= activity %>
+        </h1>
+        <!-- <h3>
+            <%= type %>
+            <br>
+            <%= price %>
+            <br>
+            <%= participants %>
+        </h3> -->
+        <form method="POST" action="/user">
+            <input hidden type="text" name="name" value="<%= activityKey %>">
+            <button class="btn btn-primary" type="submit">Add to Favorite</button>
+          </form>
+        <a href="/" class="btn btn-light">Try again</a>
+        
+        </div>    
+
+<% } %>
+
+</body>
+
+</html>

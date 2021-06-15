@@ -1,12 +1,13 @@
-const { default: axios } = require('axios')
+const axios  = require('axios')
 let express = require('express')
 let ejsLayouts = require('express-ejs-layouts')
-let axios = require('axios')
 // let db = require('./models')
 let rowdy = require('rowdy-logger')
 
+
 let app = express()
 
+var rowdyResults = rowdy.begin(app)
 rowdy.begin(app)
 
 app.set('view engine', 'ejs')
@@ -24,14 +25,20 @@ app.use(express.static(__dirname + '/public/'))
 
 app.use('/favorites', require('./controllers/favorites'))
 app.use('/results', require('./controllers/results'))
+app.use('/user', require('./controllers/user'))
 
-app.get('/', (req, res) => {
-    axios.get
-})
+// app.get('/results', (req, res) => {
+//     axios.get('http://www.boredapi.com/api/activity')
+//     .then(response => {
+//         res.redirect('/results')
+//         console.log(response)
+//     })
+//     .catch(err => {console.log(err)})
+// })
 
 let server = app.listen(3000, () => {
     console.log('we on this shit')
-    // rowdy.print()
+    rowdyResults.print()
 })
 
 module.exports = server

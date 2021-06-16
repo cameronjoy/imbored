@@ -39,7 +39,7 @@ app.use('/user', require('./controllers/user'))
 //     .catch(err => {console.log(err)})
 // })
 
-let server = app.listen(3000, () => {
+let server = app.listen(process.env.PORT || 3000, () => {
     console.log('we on this shit')
     rowdyResults.print()
 })

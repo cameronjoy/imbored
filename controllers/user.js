@@ -31,7 +31,7 @@ router.post('/', (req,res) => {
     console.log(req.body)
     db.user.findOne()
     .then(user => {
-        console.log('adding fave to this user', user.name)
+        // console.log('adding fave to this user', user.name)
         user.createFavorite({
             activityKey: activityKey,
             note: "", 

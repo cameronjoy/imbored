@@ -17,6 +17,9 @@ module.exports = {
       note: {
         type: Sequelize.STRING
       },
+      activity: {
+        type: Sequelize.STRING
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
